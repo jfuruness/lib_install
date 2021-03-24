@@ -25,7 +25,7 @@ class Installer:
                 "sudo apt-get -y install curl",
                 "sudo apt-get -y install flake8",
                 "sudo apt-get -y install python3-pip",
-                "rm -rf ~/Music ~/Pictures ~/Public ~/Templates ~/Videos",
+                "rm -rf ~/Music ~/Pictures ~/Public ~/Templates ~/Videos ~/Documents",
                 ]
         self._run_cmds(cmds)
 
