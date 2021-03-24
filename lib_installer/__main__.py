@@ -3,4 +3,4 @@
 from .installer import Installer
 
 def main():
-    Installer.run()
+    Installer().run()

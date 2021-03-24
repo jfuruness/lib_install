@@ -17,22 +17,22 @@ class Installer:
     def _initial_bash_cmds(self):
         """Upgrade apt, install deps, and remove dumb folders"""
 
-        cmds = ["sudo apt-get update",
-                "sudo apt-get upgrade",
-                "sudo apt-get install vim",
-                "sudo apt-get install git",
-                "sudo apt-get install python3-venv",
-                "sudo apt-get install curl",
-                "sudo apt-get install flake8",
-                "sudo apt-get install python3-pip",
-                "rm -rf Music Pictures Public Templates Videos",
+        cmds = ["sudo apt-get -y update",
+                "sudo apt-get -y upgrade",
+                "sudo apt-get -y install vim",
+                "sudo apt-get -y install git",
+                "sudo apt-get -y install python3-venv",
+                "sudo apt-get -y install curl",
+                "sudo apt-get -y install flake8",
+                "sudo apt-get -y install python3-pip",
+                "rm -rf ~/Music ~/Pictures ~/Public ~/Templates ~/Videos",
                 ]
         self._run_cmds(cmds)
 
     def _modify_bashrc(self):
-        with open("~/.bashrc", "r") as f:
+        with open(os.path.expanduser("~/.bashrc"), "r") as f:
             lines = f.readlines()
-        with open("~/.bashrc", "w") as f:
+        with open(os.path.expanduser("~/.bashrc"), "w") as f:
             for line in lines:
                 if "HISTSIZE" in line:
                     f.write("HISTSIZE=100000\n")
@@ -40,7 +40,8 @@ class Installer:
                     f.write("HISTFILESIZE=2000000\n")
                 else:
                     f.write(line)
-        self._run_cmds(["source ~/.bashrc"])
+        # Cannot appear to source from within a shell
+        # self._run_cmds(["source ~/.bashrc"])
 
     def _install_chrome(self):
         """Installs google chrome"""
@@ -53,7 +54,7 @@ class Installer:
         # Alter favorites bar and add chrome to it
         # https://arcanecode.com/2019/04/17/
         # setting-your-ubuntu-18-10-favorites-bar-in-a-script/
-        pin_cmd = 'gsettings set org.gnome.shell favorit-apps "'
+        pin_cmd = 'gsettings set org.gnome.shell favorite-apps "'
         pin_cmd += ("['google-chrome.desktop', 'org.gnome.Nautilus.desktop',"
                     "'libreoffice-writer.desktop', 'org.gnome.Terminal.desktop']")
         pin_cmd += '"'
@@ -74,11 +75,13 @@ class Installer:
         path = "/etc/apt/sources.list"
         with open(path, "r") as f:
             lines = f.readlines()
-        with open(path, "w") as f:
+        permissions_path = "/tmp/sources.list"
+        with open(permissions_path, "w") as f:
             # Comments out cdrom line
             f.write("#")
             for line in lines:
-                f.write(lin)
+                f.write(line)
+        self._run_cmds([f"sudo cp {permissions_path} {path}"])
 
     def _install_flake8(self):
         cmds = ["mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso "
@@ -91,11 +94,14 @@ class Installer:
 
         for task in ["Start google chrome and sync to your acct",
                      "Set scroll speed and mouse speed as high as possible",
-                     "Download .ssh and .vimrc (later fix this)"]
-        cmds = ["chmod -R 400 .ssh/",
-                "eval `ssh-agent`",
+                     "Download .ssh and .vimrc (later fix this)"]:
+            input(task)
+        cmds = ["sudo chmod -R 400 ~/.ssh/",
+                "eval `ssh-agent`"]
+        self._run_cmds(cmds)
 
     def _run_cmds(self, cmds):
         assert isinstance(cmds, list)
         for cmd in cmds:
+            print(f"Running: {cmd}")
             check_call(cmd, shell=True)

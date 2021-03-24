@@ -36,7 +36,7 @@ setup(
         'Programming Language :: Python :: 3'],
     entry_points={
         'console_scripts': [
-            'install = lib_install.__main__:main',
+            'install = lib_installer.__main__:main',
         ]},
     setup_requires=['pytest-runner'],
     tests_require=['pytest'],
