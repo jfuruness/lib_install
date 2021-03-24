@@ -97,7 +97,8 @@ class Installer:
                      "Download .ssh and .vimrc (later fix this)"]:
             input(task)
         cmds = ["sudo chmod -R 400 ~/.ssh/",
-                "eval `ssh-agent`"]
+                "eval `ssh-agent`",
+                "ssh-add"]
         self._run_cmds(cmds)
 
     def _run_cmds(self, cmds):
