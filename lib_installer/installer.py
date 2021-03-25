@@ -96,7 +96,7 @@ class Installer:
                      "Set scroll speed and mouse speed as high as possible",
                      "Download .ssh and .vimrc (later fix this)"]:
             input(task)
-        cmds = ["sudo chmod -R 400 ~/.ssh/",
+        cmds = ["sudo chmod -R 700 ~/.ssh/",
                 "eval `ssh-agent`",
                 "ssh-add"]
         self._run_cmds(cmds)
