@@ -13,6 +13,10 @@ class Installer:
         self._modify_sources()
         self._install_flake8()
         self._manual_tasks()
+        """change installer to use chmod -R 700 ~/.ssh
+        sudo ssh-agent bash
+        ssh-add /home/anon/.ssh/id_rsa (then github_rsa, pwod is: this is convenient"""
+
 
     def _initial_bash_cmds(self):
         """Upgrade apt, install deps, and remove dumb folders"""
