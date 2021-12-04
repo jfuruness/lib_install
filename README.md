@@ -30,13 +30,14 @@ run in a terminal: ```install```
 * [lib\_installer](#lib\_installer)
 
 Install the package with:
+# This is out of date probably
 ```pip3 install lib_installer```
 
 To install from source and develop:
 ```
 git clone https://github.com/jfuruness/lib_installer.git
 cd lib_installer
-python3 setup.py develop
+pip3 install -e .
 ```
 
 ### System Requirements
