@@ -16,7 +16,9 @@ class Installer:
         """change installer to use chmod -R 700 ~/.ssh
         sudo ssh-agent bash
         ssh-add /home/anon/.ssh/id_rsa (then github_rsa, pwod is: this is convenient"""
-
+        # Must use the below to configure the wifi properly...
+        # https://askubuntu.com/a/1180403/785421
+        # https://askubuntu.com/a/1077559/785421
 
     def _initial_bash_cmds(self):
         """Upgrade apt, install deps, and remove dumb folders"""
