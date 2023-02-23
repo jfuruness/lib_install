@@ -19,6 +19,7 @@ class Installer:
         # Must use the below to configure the wifi properly...
         # https://askubuntu.com/a/1180403/785421
         # https://askubuntu.com/a/1077559/785421
+        input("See comments above to fix wifi")
 
     def _initial_bash_cmds(self):
         """Upgrade apt, install deps, and remove dumb folders"""
@@ -33,6 +34,8 @@ class Installer:
                 "sudo apt-get -y install python3-pip",
                 "sudo apt-get -y install tmux",
                 "rm -rf ~/Music ~/Pictures ~/Public ~/Templates ~/Videos ~/Documents",
+                "git config --global user.email 'jfuruness@gmail.com'",
+                "git config --global user.name 'Justin Furuness'",
                 ]
         self._run_cmds(cmds)
 
@@ -101,7 +104,8 @@ class Installer:
 
         for task in ["Start google chrome and sync to your acct",
                      "Set scroll speed and mouse speed as high as possible",
-                     "Download .ssh and .vimrc (later fix this)"]:
+                     "Download .ssh and .vimrc (later fix this)",
+                     "Download displaylink manager"]:
             input(task)
         cmds = ["sudo chmod -R 700 ~/.ssh/",
                 "eval `ssh-agent`",
