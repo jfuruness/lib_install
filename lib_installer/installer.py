@@ -20,6 +20,8 @@ class Installer:
         # https://askubuntu.com/a/1180403/785421
         # https://askubuntu.com/a/1077559/785421
         input("See comments above to fix wifi")
+        # https://medium.com/@ahmaddynugroho/swap-caps-lock-and-escape-in-ubuntu-19-10-and-use-esc-easily-in-vim-vs-code-1d3d68f18764
+        input("Install gnome-tweaks to swap escape key")
 
     def _initial_bash_cmds(self):
         """Upgrade apt, install deps, and remove dumb folders"""
