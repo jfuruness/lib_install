@@ -35,9 +35,13 @@ Install the package with:
 
 To install from source and develop:
 ```
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install git
+pip3 install -e . --break-system-packages
 git clone https://github.com/jfuruness/lib_installer.git
 cd lib_installer
-pip3 install -e .
+pip3 install -e . --break-system-packages
 ```
 
 ### System Requirements

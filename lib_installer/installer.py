@@ -99,7 +99,7 @@ class Installer:
     def _install_flake8(self):
         cmds = ["mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso "
                 "~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim",
-                "pip3 install flake8"]
+                "pip3 install flake8 --break-system-packages"]
         self._run_cmds(cmds)
 
     def _manual_tasks(self):
