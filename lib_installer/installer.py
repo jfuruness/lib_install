@@ -13,6 +13,7 @@ class Installer:
         self._modify_sources()
         self._install_flake8()
         self._manual_tasks()
+        input("Add pypy https://askubuntu.com/a/1012356/785421")
         """change installer to use chmod -R 700 ~/.ssh
         sudo ssh-agent bash
         ssh-add /home/anon/.ssh/id_rsa (then github_rsa, pwod is: this is convenient"""
