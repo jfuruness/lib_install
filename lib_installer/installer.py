@@ -40,6 +40,8 @@ class Installer:
                 "rm -rf ~/Music ~/Pictures ~/Public ~/Templates ~/Videos ~/Documents",
                 "git config --global user.email 'jfuruness@gmail.com'",
                 "git config --global user.name 'Justin Furuness'",
+                # https://stackoverflow.com/a/11489440/8903959
+                "sudo apt-get -y install vim-gtk3",  # For copying to and from system keyboard
                 ]
         self._run_cmds(cmds)
 
