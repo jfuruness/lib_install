@@ -31,6 +31,35 @@ class Installer:
         # sudo reboot
         # install vs code
         # install vs code extensions for react, html, python, vim
+        """Add the following keybindings:
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "ctrl+p",
+        "command": "workbench.action.quickOpen",
+    },
+    {
+        "key": "ctrl+alt+v",
+        "command": "toggleVim"
+    },
+    {
+      "key": "ctrl+tab",
+      "command": "workbench.action.nextEditor"
+  },
+  {
+      "key": "ctrl+shift+tab",
+      "command": "workbench.action.previousEditor"
+  }
+]
+Modify vim settings
+Control + ,
+Vim clip
+Click checkbox saying to use system clipboard for unnamed register
+Also search vim and check the box that says disable extension to disable it by default
+Other notes:
+Tmux and split panes in general are completely broken in vs code, you can’t split pane and open a new file, not easy to go back and forth etc. Additionally, enabling vim keybindings captures so many normal vs code bindings it screws a lot up
+You just gotta open the files and tab through them using ctrl + tab
+"""
 
     def _initial_bash_cmds(self):
         """Upgrade apt, install deps, and remove dumb folders"""
