@@ -22,8 +22,15 @@ class Installer:
         # https://askubuntu.com/a/1077559/785421
         input("See comments above to fix wifi")
         # https://medium.com/@ahmaddynugroho/swap-caps-lock-and-escape-in-ubuntu-19-10-and-use-esc-easily-in-vim-vs-code-1d3d68f18764
-        input("Install gnome-tweaks to swap escape key")
-        input("Install hydrapaper using flatpack (look this up) and put vim shortcuts on top left")
+        # input("Install gnome-tweaks to swap escape key")
+        # input("Install hydrapaper using flatpack (look this up) and put vim shortcuts on top left")
+        input("see comments below and follow them for mapping caps lock to escape")
+        # sudo vim /etc/default/keyboard
+        # find the line and change it to XKBOPTIONS="caps:escape"
+        # sudo dpkg-reconfigure keyboard-configuration
+        # sudo reboot
+        # install vs code
+        # install vs code extensions for react, html, python, vim
 
     def _initial_bash_cmds(self):
         """Upgrade apt, install deps, and remove dumb folders"""
